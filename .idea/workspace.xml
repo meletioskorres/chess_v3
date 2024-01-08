@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7cef490a-3422-4d69-89b0-8e467dfcaa5b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chess_v3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test/Pieces/Rook/RookTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/Alliance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/board/Board.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/board/BoardUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/board/Move.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/board/Tile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/gui/GuiBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/gui/GuiUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/gui/Input.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Bishop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/King.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Knight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Pawn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Piece.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/PieceUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Queen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Rook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chess/engine/players/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/pieces.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2aGiAfxFYAE8WHK6szUJjzuiW0Z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.RookTest.testLegalMovesEmptyBoard (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RookTest.testLegalMovesEmptyBoard.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Board" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\chess\chess_v3\src\res" />
+      <recent name="D:\projects\chess\chess_v3\src" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Test.Pieces.Rook" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="chess_v3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RookTest.testLegalMovesEmptyBoard (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess_v3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.Pieces.Rook.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test.Pieces.Rook" />
+      <option name="MAIN_CLASS_NAME" value="Test.Pieces.Rook.RookTest" />
+      <option name="METHOD_NAME" value="testLegalMovesEmptyBoard" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RookTest.testLegalMovesEmptyBoard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess_v3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chess.engine.Rook.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test.Pieces.Rook" />
+      <option name="MAIN_CLASS_NAME" value="chess.engine.Rook.RookTest" />
+      <option name="METHOD_NAME" value="testLegalMovesEmptyBoard" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.RookTest.testLegalMovesEmptyBoard (1)" />
+        <item itemvalue="JUnit.RookTest.testLegalMovesEmptyBoard" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-corretto-17.0.9-249ae16d76d6-98297cd8" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7cef490a-3422-4d69-89b0-8e467dfcaa5b" name="Changes" comment="" />
+      <created>1703951176776</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703951176776</updated>
+      <workItem from="1703951177895" duration="2727000" />
+      <workItem from="1703970032336" duration="3588000" />
+      <workItem from="1704008688963" duration="8743000" />
+      <workItem from="1704017886337" duration="8662000" />
+      <workItem from="1704042020020" duration="5723000" />
+      <workItem from="1704116647525" duration="5054000" />
+      <workItem from="1704133950019" duration="3029000" />
+      <workItem from="1704199350912" duration="6029000" />
+      <workItem from="1704215595519" duration="3484000" />
+      <workItem from="1704379637277" duration="13000" />
+      <workItem from="1704657053026" duration="4524000" />
+      <workItem from="1704705916669" duration="3515000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
