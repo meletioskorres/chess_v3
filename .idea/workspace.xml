@@ -4,34 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cef490a-3422-4d69-89b0-8e467dfcaa5b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chess_v3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/Pieces/Rook/RookTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/Alliance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/board/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/board/BoardUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/board/Move.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/board/Tile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/gui/GuiBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/gui/GuiUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/gui/Input.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Bishop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/King.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Knight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Pawn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Piece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/PieceUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Queen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Rook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chess/engine/players/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/pieces.png" afterDir="false" />
+    <list default="true" id="7cef490a-3422-4d69-89b0-8e467dfcaa5b" name="Changes" comment="Final chess engine using a 2D array as a board">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/engine/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/engine/board/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/board/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/engine/gui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/gui/Input.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +25,26 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "meletioskorres"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="c3070d61-3b14-4aac-af0c-b1ad6944710e" />
+        <option name="url" value="https://github.com/meletioskorres/chess_v3.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -67,35 +63,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.RookTest.testLegalMovesEmptyBoard (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RookTest.testLegalMovesEmptyBoard.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.RookTest.testLegalMovesEmptyBoard (1).executor": "Run",
+    "JUnit.RookTest.testLegalMovesEmptyBoard.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "git-widget-placeholder": "Refactoring",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Board" />
@@ -191,6 +187,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
