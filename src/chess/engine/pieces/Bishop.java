@@ -15,7 +15,7 @@ import static chess.engine.pieces.PieceUtil.isValidMove;
 public class Bishop extends Piece {
 
     public Bishop(Alliance alliance, int row, int col) {
-        super(alliance, PieceType.ROOK, row, col);
+        super(alliance, PieceType.BISHOP, row, col);
         this.sprite = sheet.getSubimage(2 * sheetScale, alliance == Alliance.WHITE ? 0 : sheetScale, sheetScale, sheetScale)
                 .getScaledInstance(GuiBoard.TILE_SIZE, GuiBoard.TILE_SIZE, Image.SCALE_SMOOTH);
     }

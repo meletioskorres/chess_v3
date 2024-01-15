@@ -3,11 +3,11 @@ package chess.engine.board;
 import java.util.Objects;
 
 public class Move {
-    private int startCol;
-    private int startRow;
-    private int endCol;
-    private int endRow;
-    private boolean isCapture;
+    private final int startCol;
+    private final int startRow;
+    private final int endCol;
+    private final int endRow;
+    private final boolean isCapture;
 
     public Move(int startCol, int startRow, int endCol, int endRow, boolean isCapture) {
         this.startRow = startRow;
@@ -40,11 +40,23 @@ public class Move {
                 '}';
     }
 
+    public int getStartCol() {
+        return startCol;
+    }
+
+    public int getStartRow() {
+        return startRow;
+    }
+
     public int getEndCol() {
         return endCol;
     }
 
     public int getEndRow() {
         return endRow;
+    }
+
+    public boolean isCapture() {
+        return isCapture;
     }
 }
