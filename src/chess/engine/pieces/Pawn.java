@@ -11,19 +11,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static chess.engine.Alliance.*;
+import static chess.engine.board.Move.*;
 import static chess.engine.pieces.Piece.PieceType.*;
 import static chess.engine.pieces.PieceUtil.isValidMove;
 
 public class Pawn extends Piece{
+    private boolean enPassantPawn;
+    private int turnsSinceEnPassant;
     public Pawn(Alliance alliance, int row, int col) {
         super(alliance, PAWN, row, col);
         this.sprite = sheet.getSubimage(5 * sheetScale, alliance == WHITE ? 0 : sheetScale, sheetScale, sheetScale)
                 .getScaledInstance(GuiBoard.TILE_SIZE, GuiBoard.TILE_SIZE, Image.SCALE_SMOOTH);
     }
 
-
     @Override
     public void calculateLegalMoves(Board board) {
+        if (enPassantPawn) {
+            turnsSinceEnPassant ++;
+        }
+
         List<Move> legalMoves = new ArrayList<>();
         Tile[][] tiles = board.getChessBoard();
 
@@ -32,12 +38,14 @@ public class Pawn extends Piece{
         int newCol = getCol();
 
         if (isValidMove(newRow, newCol) && !tiles[newRow][newCol].isOccupied()) {
-            legalMoves.add(new Move(getCol(), getRow(), newCol, newRow, false));
+            legalMoves.add(new SimpleMove(getCol(), getRow(), newCol, newRow));
 
             newRow += dRow;
 
             if (!this.hasMoved() && isValidMove(newRow, newCol)) {
-                legalMoves.add(new Move(getCol(), getRow(), newCol, newRow, false));
+                legalMoves.add(new Move.PawnJump(getCol(), getRow(), newCol, newRow));
+                enPassantPawn = true;
+                turnsSinceEnPassant = 0;
             };
         }
 
@@ -48,13 +56,27 @@ public class Pawn extends Piece{
             if (isValidMove(attackRow, attackColIdx) && tiles[attackRow][attackColIdx].isOccupied()) {
                 Piece piece = tiles[attackRow][attackColIdx].getPiece();
                 if (piece.getAlliance() != this.getAlliance()) {
-                    legalMoves.add(new Move(getCol(), getRow(), attackColIdx, attackRow, true));
+                    legalMoves.add(new AttackMove(getCol(), getRow(), attackColIdx, attackRow));
                 }
             }
         }
 
-
         setLegalMoves(legalMoves);
     }
 
+    public boolean isEnPassantPawn() {
+        return enPassantPawn;
+    }
+
+    public void setEnPassantPawn(boolean enPassantPawn) {
+        this.enPassantPawn = enPassantPawn;
+    }
+
+    public int getTurnsSinceEnPassant() {
+        return turnsSinceEnPassant;
+    }
+
+    public void setTurnsSinceEnPassant(int turnsSinceEnPassant) {
+        this.turnsSinceEnPassant = turnsSinceEnPassant;
+    }
 }

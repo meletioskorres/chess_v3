@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cef490a-3422-4d69-89b0-8e467dfcaa5b" name="Changes" comment="Final chess engine using a 2D array as a board">
+    <list default="true" id="7cef490a-3422-4d69-89b0-8e467dfcaa5b" name="Changes" comment="Fixed a bug with movePiece and move class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/chess/engine/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/board/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/chess/engine/board/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/board/Move.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/chess/engine/gui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/gui/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/engine/pieces/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/engine/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/pieces/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/engine/pieces/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/engine/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/engine/pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/engine/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Rook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,17 +33,17 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="Refactoring" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "meletioskorres"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;meletioskorres&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -78,7 +84,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "Refactoring",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -152,6 +158,8 @@
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.RookTest.testLegalMovesEmptyBoard (1)" />
         <item itemvalue="JUnit.RookTest.testLegalMovesEmptyBoard" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.RookTest.testLegalMovesEmptyBoard (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -183,6 +191,15 @@
       <workItem from="1704657053026" duration="4524000" />
       <workItem from="1704705916669" duration="3515000" />
     </task>
+    <task id="LOCAL-00001" summary="Fixed a bug with movePiece and move class">
+      <option name="closed" value="true" />
+      <created>1705318370123</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1705318370123</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +215,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed a bug with movePiece and move class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a bug with movePiece and move class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

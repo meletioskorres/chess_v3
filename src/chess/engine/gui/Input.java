@@ -7,6 +7,7 @@ import chess.engine.pieces.Piece;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import static chess.engine.board.Move.*;
 import static chess.engine.gui.GuiBoard.NUMBER_OF_COLUMNS;
 import static chess.engine.gui.GuiBoard.NUMBER_OF_ROWS;
 
@@ -53,13 +54,17 @@ public class Input extends MouseAdapter {
             }
 
             Piece pieceAtNewPosition = board.getPiece(newRow, newCol);
-            if (pieceAtNewPosition == null ||
+            Move move;
+            if (pieceAtNewPosition != null &&
                     pieceAtNewPosition.getAlliance() != selectedPiece.getAlliance()) {
-                Move move = new Move(selectedPiece.getCol(), selectedPiece.getRow(), newCol, newRow, false);
+                move = new AttackMove(selectedPiece.getCol(), selectedPiece.getRow(), newCol, newRow);
+            } else {
+                move = new SimpleMove(selectedPiece.getCol(), selectedPiece.getRow(), newCol, newRow);
+            }
 
-                if (isValidMove(selectedPiece, move, board)) {
-                    board.movePiece(selectedPiece, move);
-                }
+            System.out.println(isValidMove(selectedPiece, move, board));
+            if (isValidMove(selectedPiece, move, board)) {
+                board.movePiece(selectedPiece, move);
             }
         }
         guiBoard.selectedPiece = null;
@@ -67,6 +72,12 @@ public class Input extends MouseAdapter {
     }
 
     private boolean isValidMove(Piece selectedPiece, Move move, Board board) {
-        return selectedPiece.getLegalMoves().contains(move);
+        for (Move legalMove : selectedPiece.getLegalMoves()) {
+            if (legalMove.equals(move)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -17,6 +17,7 @@ public class Board {
     private List<Move> allMoves;
     private List<Move> whiteMoves;
     private List<Move> blackMoves;
+
     public Board() {
         chessBoard = new Tile[8][8];
         for (int i = 0; i < 8; i++) {
@@ -42,9 +43,6 @@ public class Board {
         setPiece(new Pawn(WHITE,1,5));
         setPiece(new Pawn(WHITE,1,6));
         setPiece(new Pawn(WHITE,1,7));
-
-
-
 
         //Black Pieces
         setPiece(new Rook(BLACK, 7, 0));

@@ -3,6 +3,7 @@ package chess.engine.pieces;
 import chess.engine.Alliance;
 import chess.engine.board.Board;
 import chess.engine.board.Move;
+import chess.engine.board.Move.SimpleMove;
 import chess.engine.board.Tile;
 import chess.engine.gui.GuiBoard;
 
@@ -10,6 +11,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static chess.engine.board.Move.*;
 import static chess.engine.pieces.PieceUtil.*;
 
 public class King extends Piece{
@@ -35,9 +37,9 @@ public class King extends Piece{
             if (isValidMove(newRow, newCol)) {
                 Tile destinationTile = tiles[newRow][newCol];
                 if (destinationTile.isOccupied() && destinationTile.getPiece().getAlliance() != this.getAlliance()) {
-                    legalMoves.add(new Move(getCol(), getRow(), newCol, newRow, true));
+                    legalMoves.add(new AttackMove(getCol(), getRow(), newCol, newRow));
                 } else if (!destinationTile.isOccupied()){
-                    legalMoves.add(new Move(getCol(), getRow(), newCol, newRow, false)); // Regular move
+                    legalMoves.add(new SimpleMove(getCol(), getRow(), newCol, newRow)); // Regular move
                 }
             }
         }
