@@ -3,6 +3,7 @@ package chess.engine.board;
 import chess.engine.pieces.*;
 import chess.engine.players.Player;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static chess.engine.gui.GuiBoard.NUMBER_OF_COLUMNS;
@@ -95,21 +96,22 @@ public class Board {
         this.blackPlayer = blackPlayer;
     }
 
-    public void movePiece(Piece pieceToMove,int startRow, int startCol, int newRow, int newCol) {
+    public void movePiece(Piece pieceToMove,Move move) {
         Tile[][] tiles = getChessBoard();
 
         // Move the piece to the new position
-        tiles[newRow][newCol].setPiece(pieceToMove);
+        tiles[move.getEndRow()][move.getEndCol()].setPiece(pieceToMove);
         // Clear the starting position
-        tiles[startRow][startCol].setPiece(null);
+        tiles[move.getStartRow()][move.getStartCol()].setPiece(null);
 
         // Update the piece's internal position
-        pieceToMove.setCol(newCol);
-        pieceToMove.setRow(newRow);
+        pieceToMove.setCol(move.getEndCol());
+        pieceToMove.setRow(move.getEndRow());
 
         pieceToMove.setHasMoved(true);
 
         calculateAllLegalMoves();
+        printBoard();
     }
 
     private void calculateAllLegalMoves() {
@@ -126,16 +128,15 @@ public class Board {
         Tile[][] tiles = getChessBoard();
         for (int row = 0; row < NUMBER_OF_ROWS; row++) {
             for (int col = 0; col < NUMBER_OF_COLUMNS; col++) {
-                Piece piece = tiles[col][row].getPiece();
+                Piece piece = tiles[row][col].getPiece();
                 if (piece != null) {
-                    System.out.print(piece.getPieceType() + " "); // Or print piece details
+                    System.out.print(piece.getPieceType().toString().charAt(0) + " "); // Or print piece details
                 } else {
-                    System.out.print("_"); // Print empty space if no piece
+                    System.out.print("_" + " "); // Print empty space if no piece
                 }
             }
             System.out.println(); // Move to the next line after each row
         }
     }
-
 
 }

@@ -58,7 +58,7 @@ public class Input extends MouseAdapter {
                 Move move = new Move(selectedPiece.getCol(), selectedPiece.getRow(), newCol, newRow, false);
 
                 if (isValidMove(selectedPiece, move, board)) {
-                    board.movePiece(selectedPiece,currentRow, currentCol, newRow, newCol);
+                    board.movePiece(selectedPiece, move);
                 }
             }
         }
