@@ -8,7 +8,6 @@ import chess.engine.pieces.Piece;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import static chess.engine.board.Move.*;
 import static chess.engine.gui.GuiBoard.NUMBER_OF_COLUMNS;
 import static chess.engine.gui.GuiBoard.NUMBER_OF_ROWS;
 
@@ -59,14 +58,6 @@ public class Input extends MouseAdapter {
                 newRow = currentRow;
             }
 
-            Piece pieceAtNewPosition = board.getPiece(newRow, newCol);
-//            Move move;
-//            if (pieceAtNewPosition != null &&
-//                    pieceAtNewPosition.getAlliance() != selectedPiece.getAlliance()) {
-//                move = new AttackMove(selectedPiece.getCol(), selectedPiece.getRow(), newCol, newRow);
-//            } else {
-//                move = new SimpleMove(selectedPiece.getCol(), selectedPiece.getRow(), newCol, newRow);
-//            }
             Move move = isValidMove(selectedPiece, newCol, newRow, board);
             if (move != null) {
                 board.movePiece(selectedPiece,move);

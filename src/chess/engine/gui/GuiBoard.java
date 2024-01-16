@@ -7,6 +7,8 @@ import chess.engine.pieces.Piece;
 import javax.swing.*;
 import java.awt.*;
 
+import static chess.engine.Alliance.WHITE;
+
 public class GuiBoard extends JPanel {
     Board board;
     public static final int TILE_SIZE = 85;
@@ -30,36 +32,44 @@ public class GuiBoard extends JPanel {
     public void paintComponent(Graphics graphics) {
         Graphics2D graphics2D = (Graphics2D) graphics;
 
+        paintBoard(graphics2D);
+
+        paintLegalMoves(graphics2D);
+
+        paintSelectedPiece(graphics2D);
+    }
+
+    private void paintBoard(Graphics2D graphics2D) {
         for (int row = 0; row < NUMBER_OF_COLUMNS; row++) {
             for (int col = 0; col < NUMBER_OF_ROWS; col++) {
                 int x = col * TILE_SIZE;
                 int y = row * TILE_SIZE;
 
-                graphics2D.setColor((col + row) % 2 == 0 ?
-                        new Color(241, 195, 145) : new Color(57, 100, 43));
+                graphics2D.setColor((col + row) % 2 == 0 ? new Color(57, 100, 43)
+                        : new Color(241, 195, 145));
 
                 graphics2D.fillRect(x, y, TILE_SIZE, TILE_SIZE);
+
                 Piece piece = board.getPiece(row, col);
                 if (piece != null && piece != selectedPiece) {
-                    graphics2D.drawImage(piece.getSprite(), x, y, this);
+                    int adjustedX = col * TILE_SIZE;
+                    int adjustedY = row * TILE_SIZE;
+                    graphics2D.drawImage(piece.getSprite(), adjustedX, adjustedY, this);
                 }
             }
         }
+    }
 
+    private void paintLegalMoves(Graphics2D graphics2D) {
         if (selectedPiece != null) {
-//            for (int r = 0; r < NUMBER_OF_ROWS; r++) {
-//                for (int c = 0; c < NUMBER_OF_COLUMNS; c++) {
-//                   if (selectedPiece.getLegalMoves().contains()) {
-//                        graphics2D.setColor(new Color(11, 225, 11, 128));
-//                        graphics2D.fillRect(c * TILE_SIZE, r * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-//                   }
-//                }
-//            }
             for (Move move : selectedPiece.getLegalMoves()) {
                 graphics2D.setColor(new Color(11, 225, 11, 128));
                 graphics2D.fillRect(move.getEndCol() * TILE_SIZE, move.getEndRow() * TILE_SIZE, TILE_SIZE, TILE_SIZE);
             }
         }
+    }
+
+    private void paintSelectedPiece(Graphics2D graphics2D) {
         if (selectedPiece != null) {
             graphics2D.drawImage(selectedPiece.getSprite(), selectedPiece.getX(), selectedPiece.getY(), this);
         }

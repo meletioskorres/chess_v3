@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cef490a-3422-4d69-89b0-8e467dfcaa5b" name="Changes" comment="Added color specific list of moves in board class and fixed the turns so only one side can move at a time">
+    <list default="true" id="7cef490a-3422-4d69-89b0-8e467dfcaa5b" name="Changes" comment="Added EnPassantLogic and refactored mouseReleased">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chess/engine/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chess/engine/board/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/board/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/engine/gui/GuiBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/gui/GuiBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/chess/engine/gui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/gui/Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chess/engine/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Pawn.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +183,7 @@
       <workItem from="1704379637277" duration="13000" />
       <workItem from="1704657053026" duration="4524000" />
       <workItem from="1704705916669" duration="3515000" />
-      <workItem from="1705391086781" duration="10132000" />
+      <workItem from="1705391086781" duration="13636000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed a bug with movePiece and move class">
       <option name="closed" value="true" />
@@ -211,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705394777527</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added EnPassantLogic and refactored mouseReleased">
+      <option name="closed" value="true" />
+      <created>1705408768310</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705408768310</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +238,8 @@
     <MESSAGE value="Fixed a bug with movePiece and move class" />
     <MESSAGE value="Refactored the move class and input class&#10;Added specific subclasses for move (e.g.&#10; AttackMove, SimpleMove etc.)" />
     <MESSAGE value="Added color specific list of moves in board class and fixed the turns so only one side can move at a time" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added color specific list of moves in board class and fixed the turns so only one side can move at a time" />
+    <MESSAGE value="Added EnPassantLogic and refactored mouseReleased" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added EnPassantLogic and refactored mouseReleased" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
