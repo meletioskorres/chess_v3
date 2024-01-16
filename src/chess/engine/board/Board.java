@@ -40,12 +40,12 @@ public class Board {
         setPiece(new Rook(WHITE, 0, 0));
         setPiece(new Knight(WHITE, 0, 1));
         setPiece(new Bishop(WHITE, 0, 2));
-        setPiece(new Queen(WHITE, 0, 3));
-        setPiece(new King(WHITE, 0, 4));
+        setPiece(new King(WHITE, 0, 3));
+        setPiece(new Queen(WHITE, 0, 4));
         setPiece(new Bishop(WHITE, 0, 5));
         setPiece(new Knight(WHITE, 0, 6));
         setPiece(new Rook(WHITE, 0, 7));
-        //White Pieces
+        //White Pawns
         setPiece(new Pawn(WHITE,1,0));
         setPiece(new Pawn(WHITE,1,1));
         setPiece(new Pawn(WHITE,1,2));
@@ -59,12 +59,12 @@ public class Board {
         setPiece(new Rook(BLACK, 7, 0));
         setPiece(new Knight(BLACK, 7, 1));
         setPiece(new Bishop(BLACK, 7, 2));
-        setPiece(new Queen(BLACK, 7, 3));
-        setPiece(new King(BLACK, 7, 4));
+        setPiece(new King(BLACK, 7, 3));
+        setPiece(new Queen(BLACK, 7, 4));
         setPiece(new Bishop(BLACK, 7, 5));
         setPiece(new Knight(BLACK, 7, 6));
         setPiece(new Rook(BLACK, 7, 7));
-        //White Pieces
+        //Black Pawns
         setPiece(new Pawn(BLACK,6,0));
         setPiece(new Pawn(BLACK,6,1));
         setPiece(new Pawn(BLACK,6,2));

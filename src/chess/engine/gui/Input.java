@@ -21,6 +21,13 @@ public class Input extends MouseAdapter {
     public void mousePressed(MouseEvent e) {
         int col = e.getX() / GuiBoard.TILE_SIZE;
         int row = e.getY() / GuiBoard.TILE_SIZE;
+
+        // Adjust the calculations based on the flipped state
+        if (guiBoard.isFlipped()) {
+            col = GuiBoard.NUMBER_OF_COLUMNS - col - 1;
+            row = GuiBoard.NUMBER_OF_ROWS - row - 1;
+        }
+
         Piece pieceXY = guiBoard.board.getPiece(row, col);
 
         if (pieceXY != null
@@ -51,6 +58,12 @@ public class Input extends MouseAdapter {
 
             int newCol = e.getX() / GuiBoard.TILE_SIZE;
             int newRow = e.getY() / GuiBoard.TILE_SIZE;
+
+            // Adjust the coordinates based on the flipped state
+            if (guiBoard.isFlipped()) {
+                newCol = GuiBoard.NUMBER_OF_COLUMNS - newCol - 1;
+                newRow = GuiBoard.NUMBER_OF_ROWS - newRow - 1;
+            }
 
             if (newCol < 0 || newCol >= NUMBER_OF_COLUMNS || newRow < 0 || newRow >= NUMBER_OF_ROWS) {
                 // Move the piece back to its original position
