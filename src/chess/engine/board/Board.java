@@ -1,8 +1,10 @@
 package chess.engine.board;
 
+import chess.engine.Alliance;
 import chess.engine.pieces.*;
 import chess.engine.players.Player;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,13 +14,20 @@ import static chess.engine.Alliance.*;
 
 public class Board {
     private final Tile[][] chessBoard;
-    private Player whitePlayer;
-    private Player blackPlayer;
+    private final Player whitePlayer;
+    private final Player blackPlayer;
     private List<Move> allMoves;
-    private List<Move> whiteMoves;
-    private List<Move> blackMoves;
+    private List<Move> whiteMoves = new ArrayList<>();
+    private List<Move> blackMoves = new ArrayList<>();
+    private Pawn enPassantPawn;
+    private Alliance currentPlayerTurn;
 
     public Board() {
+        whitePlayer = new Player();
+        blackPlayer = new Player();
+
+        this.currentPlayerTurn = WHITE;
+
         chessBoard = new Tile[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -82,16 +91,8 @@ public class Board {
         return whitePlayer;
     }
 
-    public void setWhitePlayer(Player whitePlayer) {
-        this.whitePlayer = whitePlayer;
-    }
-
     public Player getBlackPlayer() {
         return blackPlayer;
-    }
-
-    public void setBlackPlayer(Player blackPlayer) {
-        this.blackPlayer = blackPlayer;
     }
 
     public void movePiece(Piece pieceToMove,Move move) {
@@ -115,8 +116,14 @@ public class Board {
     private void calculateAllLegalMoves() {
         for (int row = 0; row < NUMBER_OF_ROWS; row++) {
             for (int col = 0; col < NUMBER_OF_COLUMNS; col++) {
-                if (chessBoard[row][col].getPiece() != null) {
-                    chessBoard[row][col].getPiece().calculateLegalMoves(this);
+                Piece pieceAtRowCol = chessBoard[row][col].getPiece();
+                if (pieceAtRowCol != null) {
+                    pieceAtRowCol.calculateLegalMoves(this);
+                    if (pieceAtRowCol.getAlliance() == WHITE) {
+                        whiteMoves.addAll(pieceAtRowCol.getLegalMoves());
+                    } else {
+                        blackMoves.addAll(pieceAtRowCol.getLegalMoves());
+                    }
                 }
             }
         }
@@ -137,4 +144,11 @@ public class Board {
         }
     }
 
+    public Alliance getCurrentPlayerTurn() {
+        return currentPlayerTurn;
+    }
+
+    public void setCurrentPlayerTurn(Alliance currentPlayerTurn) {
+        this.currentPlayerTurn = currentPlayerTurn;
+    }
 }

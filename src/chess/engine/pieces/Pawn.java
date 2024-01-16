@@ -15,9 +15,8 @@ import static chess.engine.board.Move.*;
 import static chess.engine.pieces.Piece.PieceType.*;
 import static chess.engine.pieces.PieceUtil.isValidMove;
 
-public class Pawn extends Piece{
-    private boolean enPassantPawn;
-    private int turnsSinceEnPassant;
+public class Pawn extends Piece {
+
     public Pawn(Alliance alliance, int row, int col) {
         super(alliance, PAWN, row, col);
         this.sprite = sheet.getSubimage(5 * sheetScale, alliance == WHITE ? 0 : sheetScale, sheetScale, sheetScale)
@@ -26,9 +25,6 @@ public class Pawn extends Piece{
 
     @Override
     public void calculateLegalMoves(Board board) {
-        if (enPassantPawn) {
-            turnsSinceEnPassant ++;
-        }
 
         List<Move> legalMoves = new ArrayList<>();
         Tile[][] tiles = board.getChessBoard();
@@ -42,14 +38,12 @@ public class Pawn extends Piece{
 
             newRow += dRow;
 
-            if (!this.hasMoved() && isValidMove(newRow, newCol)) {
+            if (!this.hasMoved() && isValidMove(newRow, newCol) && !tiles[newRow][newCol].isOccupied()) {
                 legalMoves.add(new Move.PawnJump(getCol(), getRow(), newCol, newRow));
-                enPassantPawn = true;
-                turnsSinceEnPassant = 0;
-            };
+            }
         }
 
-        int[] attackCols = { -1, 1 };
+        int[] attackCols = {-1, 1};
         for (int attackCol : attackCols) {
             int attackRow = getRow() + dRow;
             int attackColIdx = getCol() + attackCol;
@@ -62,21 +56,5 @@ public class Pawn extends Piece{
         }
 
         setLegalMoves(legalMoves);
-    }
-
-    public boolean isEnPassantPawn() {
-        return enPassantPawn;
-    }
-
-    public void setEnPassantPawn(boolean enPassantPawn) {
-        this.enPassantPawn = enPassantPawn;
-    }
-
-    public int getTurnsSinceEnPassant() {
-        return turnsSinceEnPassant;
-    }
-
-    public void setTurnsSinceEnPassant(int turnsSinceEnPassant) {
-        this.turnsSinceEnPassant = turnsSinceEnPassant;
     }
 }

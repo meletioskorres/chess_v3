@@ -2,7 +2,7 @@ package chess.engine.board;
 
 import java.util.Objects;
 
-public class Move {
+public abstract class Move {
     private final int startCol;
     private final int startRow;
     private final int endCol;

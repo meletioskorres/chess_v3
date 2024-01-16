@@ -1,5 +1,6 @@
 package chess.engine.gui;
 
+import chess.engine.Alliance;
 import chess.engine.board.Board;
 import chess.engine.board.Move;
 import chess.engine.pieces.Piece;
@@ -22,8 +23,12 @@ public class Input extends MouseAdapter {
         int col = e.getX() / GuiBoard.TILE_SIZE;
         int row = e.getY() / GuiBoard.TILE_SIZE;
         Piece pieceXY = guiBoard.board.getPiece(row, col);
-        if (pieceXY != null) {
+
+        if (pieceXY != null
+                && pieceXY.getAlliance() == guiBoard.board.getCurrentPlayerTurn()) {
             guiBoard.selectedPiece = pieceXY;
+        } else {
+            guiBoard.selectedPiece = null;
         }
     }
 
@@ -40,7 +45,8 @@ public class Input extends MouseAdapter {
     public void mouseReleased(MouseEvent e) {
         Piece selectedPiece = guiBoard.selectedPiece;
         Board board = guiBoard.getBoard();
-        if (selectedPiece != null && board != null) {
+        if (selectedPiece != null && board != null
+                && selectedPiece.getAlliance() == board.getCurrentPlayerTurn()) {
             int currentCol = selectedPiece.getCol();
             int currentRow = selectedPiece.getRow();
 
@@ -62,9 +68,9 @@ public class Input extends MouseAdapter {
                 move = new SimpleMove(selectedPiece.getCol(), selectedPiece.getRow(), newCol, newRow);
             }
 
-            System.out.println(isValidMove(selectedPiece, move, board));
             if (isValidMove(selectedPiece, move, board)) {
                 board.movePiece(selectedPiece, move);
+                board.setCurrentPlayerTurn(board.getCurrentPlayerTurn() == Alliance.WHITE ? Alliance.BLACK : Alliance.WHITE);
             }
         }
         guiBoard.selectedPiece = null;
@@ -77,7 +83,6 @@ public class Input extends MouseAdapter {
                 return true;
             }
         }
-
         return false;
     }
 }
