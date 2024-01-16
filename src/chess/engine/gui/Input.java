@@ -60,16 +60,17 @@ public class Input extends MouseAdapter {
             }
 
             Piece pieceAtNewPosition = board.getPiece(newRow, newCol);
-            Move move;
-            if (pieceAtNewPosition != null &&
-                    pieceAtNewPosition.getAlliance() != selectedPiece.getAlliance()) {
-                move = new AttackMove(selectedPiece.getCol(), selectedPiece.getRow(), newCol, newRow);
-            } else {
-                move = new SimpleMove(selectedPiece.getCol(), selectedPiece.getRow(), newCol, newRow);
-            }
-
-            if (isValidMove(selectedPiece, move, board)) {
-                board.movePiece(selectedPiece, move);
+//            Move move;
+//            if (pieceAtNewPosition != null &&
+//                    pieceAtNewPosition.getAlliance() != selectedPiece.getAlliance()) {
+//                move = new AttackMove(selectedPiece.getCol(), selectedPiece.getRow(), newCol, newRow);
+//            } else {
+//                move = new SimpleMove(selectedPiece.getCol(), selectedPiece.getRow(), newCol, newRow);
+//            }
+            Move move = isValidMove(selectedPiece, newCol, newRow, board);
+            if (move != null) {
+                board.movePiece(selectedPiece,move);
+                System.out.println(move);
                 board.setCurrentPlayerTurn(board.getCurrentPlayerTurn() == Alliance.WHITE ? Alliance.BLACK : Alliance.WHITE);
             }
         }
@@ -77,12 +78,15 @@ public class Input extends MouseAdapter {
         guiBoard.repaint();
     }
 
-    private boolean isValidMove(Piece selectedPiece, Move move, Board board) {
+    private Move isValidMove(Piece selectedPiece, int newCol, int newRow, Board board) {
         for (Move legalMove : selectedPiece.getLegalMoves()) {
-            if (legalMove.equals(move)) {
-                return true;
+            if (legalMove.getStartCol() == selectedPiece.getCol()
+            && legalMove.getStartRow() == selectedPiece.getRow()
+            && legalMove.getEndCol() == newCol
+            && legalMove.getEndRow() == newRow) {
+                return legalMove;
             }
         }
-        return false;
+        return null;
     }
 }

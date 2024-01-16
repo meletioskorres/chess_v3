@@ -1,6 +1,8 @@
 package chess.engine.board;
 
 import chess.engine.Alliance;
+import chess.engine.board.Move.EnPassantAttack;
+import chess.engine.board.Move.PawnJump;
 import chess.engine.pieces.*;
 import chess.engine.players.Player;
 
@@ -96,6 +98,21 @@ public class Board {
     }
 
     public void movePiece(Piece pieceToMove,Move move) {
+        if (enPassantPawn != null && pieceToMove.getAlliance() == enPassantPawn.getAlliance()) {
+            setEnPassantPawn(null);
+        }
+
+        if (pieceToMove.getPieceType() == Piece.PieceType.PAWN
+        && move instanceof PawnJump) {
+            setEnPassantPawn((Pawn) pieceToMove);
+        }
+
+        if (move instanceof EnPassantAttack) {
+          int attackedPieceCol = move.getEndCol();
+          int attackedPieceRow = move.getEndRow() + (pieceToMove.getAlliance().isWhite() ? -1 : 1);
+          chessBoard[attackedPieceRow][attackedPieceCol].setPiece(null);
+
+        }
         Tile[][] tiles = getChessBoard();
 
         // Move the piece to the new position
@@ -108,12 +125,13 @@ public class Board {
         pieceToMove.setRow(move.getEndRow());
 
         pieceToMove.setHasMoved(true);
-
         calculateAllLegalMoves();
         printBoard();
     }
 
     private void calculateAllLegalMoves() {
+        blackMoves = new ArrayList<>();
+        whiteMoves = new ArrayList<>();
         for (int row = 0; row < NUMBER_OF_ROWS; row++) {
             for (int col = 0; col < NUMBER_OF_COLUMNS; col++) {
                 Piece pieceAtRowCol = chessBoard[row][col].getPiece();
@@ -150,5 +168,13 @@ public class Board {
 
     public void setCurrentPlayerTurn(Alliance currentPlayerTurn) {
         this.currentPlayerTurn = currentPlayerTurn;
+    }
+
+    public Pawn getEnPassantPawn() {
+        return enPassantPawn;
+    }
+
+    public void setEnPassantPawn(Pawn enPassantPawn) {
+        this.enPassantPawn = enPassantPawn;
     }
 }

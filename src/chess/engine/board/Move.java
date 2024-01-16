@@ -76,7 +76,7 @@ public abstract class Move {
         }
     }
 
-    public class EnPassantAttack extends AttackMove {
+    public static class EnPassantAttack extends AttackMove {
 
         public EnPassantAttack(int startCol, int startRow, int endCol, int endRow) {
             super(startCol, startRow, endCol, endRow);

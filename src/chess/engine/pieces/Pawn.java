@@ -39,7 +39,7 @@ public class Pawn extends Piece {
             newRow += dRow;
 
             if (!this.hasMoved() && isValidMove(newRow, newCol) && !tiles[newRow][newCol].isOccupied()) {
-                legalMoves.add(new Move.PawnJump(getCol(), getRow(), newCol, newRow));
+                legalMoves.add(new PawnJump(getCol(), getRow(), newCol, newRow));
             }
         }
 
@@ -53,7 +53,16 @@ public class Pawn extends Piece {
                     legalMoves.add(new AttackMove(getCol(), getRow(), attackColIdx, attackRow));
                 }
             }
+
+            if (board.getEnPassantPawn() != null
+                    && board.getEnPassantPawn().getRow() == this.getRow()) {
+                if (board.getEnPassantPawn().getCol() == attackColIdx) {
+                    legalMoves.add(new EnPassantAttack(getCol(), getRow(), attackColIdx, attackRow));
+                }
+            }
         }
+
+
 
         setLegalMoves(legalMoves);
     }
