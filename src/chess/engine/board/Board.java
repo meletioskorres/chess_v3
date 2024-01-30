@@ -3,6 +3,8 @@ package chess.engine.board;
 import chess.engine.Alliance;
 import chess.engine.board.Move.EnPassantAttack;
 import chess.engine.board.Move.PawnJump;
+import chess.engine.board.Move.PawnPromotion;
+import chess.engine.board.Move.PawnPromotionAttack;
 import chess.engine.pieces.*;
 import chess.engine.players.Player;
 
@@ -97,32 +99,42 @@ public class Board {
         return blackPlayer;
     }
 
-    public void movePiece(Piece pieceToMove,Move move) {
+    public <T extends Move> void movePiece(Piece pieceToMove,T move) {
+        System.out.println(move.getClass().toString());
         if (enPassantPawn != null && pieceToMove.getAlliance() == enPassantPawn.getAlliance()) {
             setEnPassantPawn(null);
         }
-
         if (pieceToMove.getPieceType() == Piece.PieceType.PAWN
-        && move instanceof PawnJump) {
+                && move instanceof PawnJump) {
             setEnPassantPawn((Pawn) pieceToMove);
+        }
+        Tile[][] chessBoard = getChessBoard();
+
+        if (move instanceof EnPassantAttack) {
+            int attackedPieceCol = move.getEndCol();
+            int attackedPieceRow = move.getEndRow() + (pieceToMove.getAlliance().isWhite() ? -1 : 1);
+            chessBoard[attackedPieceRow][attackedPieceCol].setPiece(null);
         }
 
         if (move instanceof EnPassantAttack) {
-          int attackedPieceCol = move.getEndCol();
-          int attackedPieceRow = move.getEndRow() + (pieceToMove.getAlliance().isWhite() ? -1 : 1);
-          chessBoard[attackedPieceRow][attackedPieceCol].setPiece(null);
-
+            int attackedPieceCol = move.getEndCol();
+            int attackedPieceRow = move.getEndRow() + (pieceToMove.getAlliance().isWhite() ? -1 : 1);
+            chessBoard[attackedPieceRow][attackedPieceCol].setPiece(null);
         }
-        Tile[][] tiles = getChessBoard();
 
         // Move the piece to the new position
-        tiles[move.getEndRow()][move.getEndCol()].setPiece(pieceToMove);
+        chessBoard[move.getEndRow()][move.getEndCol()].setPiece(pieceToMove);
         // Clear the starting position
-        tiles[move.getStartRow()][move.getStartCol()].setPiece(null);
+        chessBoard[move.getStartRow()][move.getStartCol()].setPiece(null);
 
         // Update the piece's internal position
         pieceToMove.setCol(move.getEndCol());
         pieceToMove.setRow(move.getEndRow());
+
+        if (pieceToMove.getPieceType() == Piece.PieceType.PAWN
+                && (move instanceof PawnPromotion || move instanceof PawnPromotionAttack)) {
+            this.setPiece(new Queen(pieceToMove.getAlliance(), pieceToMove.getRow(), pieceToMove.getCol()));
+        }
 
         pieceToMove.setHasMoved(true);
         calculateAllLegalMoves();

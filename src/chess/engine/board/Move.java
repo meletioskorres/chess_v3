@@ -90,6 +90,19 @@ public abstract class Move {
         }
     }
 
+    public static class PawnPromotion extends SimpleMove {
+
+        public PawnPromotion(int startCol, int startRow, int endCol, int endRow) {
+            super(startCol, startRow, endCol, endRow);
+        }
+    }
+
+    public static class PawnPromotionAttack extends AttackMove {
+        public PawnPromotionAttack(int startCol, int startRow, int endCol, int endRow) {
+            super(startCol, startRow, endCol, endRow);
+        }
+    }
+
     //add castling and probably promotion?
 
 }

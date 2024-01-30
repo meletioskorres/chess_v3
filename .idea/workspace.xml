@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cef490a-3422-4d69-89b0-8e467dfcaa5b" name="Changes" comment="Refactored GuiBoard for better readability &#10;&amp; cleaned up some leftover code in the Input class">
+    <list default="true" id="7cef490a-3422-4d69-89b0-8e467dfcaa5b" name="Changes" comment="Fixed an issue with the setting of the default board. Added functionality to flip the board and implemented its logic on the input class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/engine/Alliance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/Alliance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/chess/engine/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chess/engine/gui/GuiBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/gui/GuiBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/engine/board/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/board/Move.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/chess/engine/gui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/gui/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/engine/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/engine/pieces/Pawn.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +186,9 @@
       <workItem from="1704379637277" duration="13000" />
       <workItem from="1704657053026" duration="4524000" />
       <workItem from="1704705916669" duration="3515000" />
-      <workItem from="1705391086781" duration="15542000" />
+      <workItem from="1705391086781" duration="16853000" />
+      <workItem from="1706195645551" duration="6297000" />
+      <workItem from="1706631058539" duration="554000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed a bug with movePiece and move class">
       <option name="closed" value="true" />
@@ -226,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705419174587</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed an issue with the setting of the default board. Added functionality to flip the board and implemented its logic on the input class">
+      <option name="closed" value="true" />
+      <created>1705420910125</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705420910125</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +261,8 @@
     <MESSAGE value="Added color specific list of moves in board class and fixed the turns so only one side can move at a time" />
     <MESSAGE value="Added EnPassantLogic and refactored mouseReleased" />
     <MESSAGE value="Refactored GuiBoard for better readability &#10;&amp; cleaned up some leftover code in the Input class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored GuiBoard for better readability &#10;&amp; cleaned up some leftover code in the Input class" />
+    <MESSAGE value="Fixed an issue with the setting of the default board. Added functionality to flip the board and implemented its logic on the input class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue with the setting of the default board. Added functionality to flip the board and implemented its logic on the input class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

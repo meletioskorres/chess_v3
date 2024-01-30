@@ -71,10 +71,9 @@ public class Input extends MouseAdapter {
                 newRow = currentRow;
             }
 
-            Move move = isValidMove(selectedPiece, newCol, newRow, board);
+            Move move = isValidMove(selectedPiece, newCol, newRow);
             if (move != null) {
                 board.movePiece(selectedPiece,move);
-                System.out.println(move);
                 board.setCurrentPlayerTurn(board.getCurrentPlayerTurn() == Alliance.WHITE ? Alliance.BLACK : Alliance.WHITE);
             }
         }
@@ -82,7 +81,7 @@ public class Input extends MouseAdapter {
         guiBoard.repaint();
     }
 
-    private Move isValidMove(Piece selectedPiece, int newCol, int newRow, Board board) {
+    private Move isValidMove(Piece selectedPiece, int newCol, int newRow) {
         for (Move legalMove : selectedPiece.getLegalMoves()) {
             if (legalMove.getStartCol() == selectedPiece.getCol()
             && legalMove.getStartRow() == selectedPiece.getRow()
