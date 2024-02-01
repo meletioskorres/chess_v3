@@ -1,21 +1,33 @@
 package chess.engine.board;
 
+import chess.engine.pieces.Pawn;
+import chess.engine.pieces.Piece;
+import chess.engine.pieces.Queen;
+
 import java.util.Objects;
+
+import static chess.engine.board.MoveType.*;
 
 public abstract class Move {
     private final int startCol;
     private final int startRow;
     private final int endCol;
     private final int endRow;
-    private final boolean isCapture;
+    private final MoveType moveType;
 
-    public Move(int startCol, int startRow, int endCol, int endRow, boolean isCapture) {
+    public Move(int startCol, int startRow, int endCol, int endRow, MoveType moveType) {
         this.startRow = startRow;
         this.startCol = startCol;
         this.endRow = endRow;
         this.endCol = endCol;
-        this.isCapture = isCapture;
+        this.moveType = moveType;
     }
+
+//    public boolean isLegal(Board board) {
+//        if()
+//    }
+
+    public abstract void execute(Board board);
 
     @Override
     public boolean equals(Object object) {
@@ -29,7 +41,7 @@ public abstract class Move {
 
     @Override
     public int hashCode() {
-        return Objects.hash(startRow, startCol, endRow, endCol, isCapture);
+        return Objects.hash(startRow, startCol, endRow, endCol);
     }
 
     @Override
@@ -58,51 +70,98 @@ public abstract class Move {
         return endRow;
     }
 
-    public boolean isCapture() {
-        return isCapture;
+    public MoveType getMoveType() {
+        return moveType;
     }
 
-    public static class AttackMove extends Move {
+    public static class NormalMove extends Move {
+        public NormalMove(int startCol, int startRow, int endCol, int endRow) {
+            super(startCol, startRow, endCol, endRow, Normal);
+        }
 
-        public AttackMove(int startCol, int startRow, int endCol, int endRow) {
-            super(startCol, startRow, endCol, endRow, true);
+        @Override
+        public void execute(Board board) {
+            Tile[][] chessBoard = board.getChessBoard();
+            Piece pieceToMove = chessBoard[getStartRow()][getStartCol()].getPiece();
+            chessBoard[getEndRow()][getEndCol()].setPiece(pieceToMove);
+            chessBoard[getStartRow()][getStartCol()].setPiece(null);
+            pieceToMove.setRow(getEndRow());
+            pieceToMove.setCol(getEndCol());
+            pieceToMove.setHasMoved(true);
         }
     }
+    public static class KingSideCastle extends Move {
+        public KingSideCastle(int startCol, int startRow, int endCol, int endRow) {
+            super(startCol, startRow, endCol, endRow, KingSideCastle);
+        }
 
-    public static class SimpleMove extends Move {
+        @Override
+        public void execute(Board board) {
 
-        public SimpleMove(int startCol, int startRow, int endCol, int endRow) {
-            super(startCol, startRow, endCol, endRow, false);
         }
     }
+    public static class QueenSideCaste extends Move {
+        public QueenSideCaste(int startCol, int startRow, int endCol, int endRow) {
+            super(startCol, startRow, endCol, endRow, QueenSideCastle);
+        }
 
-    public static class EnPassantAttack extends AttackMove {
+        @Override
+        public void execute(Board board) {
 
-        public EnPassantAttack(int startCol, int startRow, int endCol, int endRow) {
-            super(startCol, startRow, endCol, endRow);
         }
     }
-
-    public static class PawnJump extends SimpleMove {
-
+    public static class PawnJump extends Move {
         public PawnJump(int startCol, int startRow, int endCol, int endRow) {
-            super(startCol, startRow, endCol, endRow);
+            super(startCol, startRow, endCol, endRow, PawnJump);
+        }
+
+        @Override
+        public void execute(Board board) {
+            Tile[][] chessBoard = board.getChessBoard();
+            Piece pieceToMove = chessBoard[getStartRow()][getStartCol()].getPiece();
+            chessBoard[getEndRow()][getEndCol()].setPiece(pieceToMove);
+            chessBoard[getStartRow()][getStartCol()].setPiece(null);
+            pieceToMove.setRow(getEndRow());
+            pieceToMove.setCol(getEndCol());
+            pieceToMove.setHasMoved(true);
+            board.setEnPassantPawn((Pawn) pieceToMove);
         }
     }
+    public static class EnPassant extends Move {
+        public EnPassant(int startCol, int startRow, int endCol, int endRow) {
+            super(startCol, startRow, endCol, endRow, EnPassant);
+        }
 
-    public static class PawnPromotion extends SimpleMove {
+        @Override
+        public void execute(Board board) {
+            Tile[][] chessBoard = board.getChessBoard();
+            Piece pieceToMove = chessBoard[getStartRow()][getStartCol()].getPiece();
+            chessBoard[getEndRow()][getEndCol()].setPiece(pieceToMove);
+            chessBoard[getStartRow()][getStartCol()].setPiece(null);
+            pieceToMove.setRow(getEndRow());
+            pieceToMove.setCol(getEndCol());
+            pieceToMove.setHasMoved(true);
 
+            int attackedPieceRow = getEndRow() + (pieceToMove.getAlliance().isWhite() ? -1 : 1);
+            chessBoard[attackedPieceRow][getEndCol()].setPiece(null);
+        }
+    }
+    public static class PawnPromotion extends Move {
         public PawnPromotion(int startCol, int startRow, int endCol, int endRow) {
-            super(startCol, startRow, endCol, endRow);
+            super(startCol, startRow, endCol, endRow, PawnPromotion);
+        }
+
+        @Override
+        public void execute(Board board) {
+            Tile[][] chessBoard = board.getChessBoard();
+            Piece pieceToMove = chessBoard[getStartRow()][getStartCol()].getPiece();
+            chessBoard[getEndRow()][getEndCol()].setPiece(pieceToMove);
+            chessBoard[getStartRow()][getStartCol()].setPiece(null);
+            pieceToMove.setRow(getEndRow());
+            pieceToMove.setCol(getEndCol());
+            pieceToMove.setHasMoved(true);
+
+            board.setPiece(new Queen(pieceToMove.getAlliance(), pieceToMove.getRow(), pieceToMove.getCol()));
         }
     }
-
-    public static class PawnPromotionAttack extends AttackMove {
-        public PawnPromotionAttack(int startCol, int startRow, int endCol, int endRow) {
-            super(startCol, startRow, endCol, endRow);
-        }
-    }
-
-    //add castling and probably promotion?
-
 }

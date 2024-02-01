@@ -35,12 +35,12 @@ public class Pawn extends Piece {
 
         if (isValidMove(newRow, newCol) && !tiles[newRow][newCol].isOccupied()) {
             if (newRow == 0 || newRow == 7) {
-                legalMoves.add(new PawnPromotion(getCol(), getRow(), newCol, newRow));
+                legalMoves.add(new Move.PawnPromotion(getCol(), getRow(), newCol, newRow));
             } else {
-                legalMoves.add(new SimpleMove(getCol(), getRow(), newCol, newRow));
+                legalMoves.add(new NormalMove(getCol(), getRow(), newCol, newRow));
                 newRow += dRow;
                 if (!this.hasMoved() && isValidMove(newRow, newCol) && !tiles[newRow][newCol].isOccupied()) {
-                    legalMoves.add(new PawnJump(getCol(), getRow(), newCol, newRow));
+                    legalMoves.add(new Move.PawnJump(getCol(), getRow(), newCol, newRow));
                 }
             }
         }
@@ -50,22 +50,27 @@ public class Pawn extends Piece {
             int attackRow = getRow() + dRow;
             int attackColIdx = getCol() + attackCol;
             if (isValidMove(attackRow, attackColIdx) && tiles[attackRow][attackColIdx].isOccupied()) {
-                Piece piece = tiles[attackRow][attackColIdx].getPiece();
-                if (piece.getAlliance() != this.getAlliance()) {
+                Piece pieceAtDestination = tiles[attackRow][attackColIdx].getPiece();
+                if (pieceAtDestination.getAlliance() != this.getAlliance()) {
                     if (attackRow == 0 || attackRow == 7) {
-                        legalMoves.add(new PawnPromotionAttack(getCol(), getRow(), attackColIdx, attackRow));
+                        legalMoves.add(new PawnPromotion(getCol(), getRow(), attackColIdx, attackRow));
                     } else {
-                        legalMoves.add(new AttackMove(getCol(), getRow(), attackColIdx, attackRow));
+                        legalMoves.add(new NormalMove(getCol(), getRow(), attackColIdx, attackRow));
                     }
                 }
             }
             if (board.getEnPassantPawn() != null
                     && board.getEnPassantPawn().getRow() == this.getRow()) {
                 if (board.getEnPassantPawn().getCol() == attackColIdx) {
-                    legalMoves.add(new EnPassantAttack(getCol(), getRow(), attackColIdx, attackRow));
+                    legalMoves.add(new EnPassant(getCol(), getRow(), attackColIdx, attackRow));
                 }
             }
         }
         setLegalMoves(legalMoves);
+    }
+
+    @Override
+    public Piece copy() {
+        return new Pawn(this.getAlliance(),this.getRow(),this.getCol());
     }
 }

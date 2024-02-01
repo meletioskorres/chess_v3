@@ -3,7 +3,6 @@ package chess.engine.pieces;
 import chess.engine.Alliance;
 import chess.engine.board.Board;
 import chess.engine.board.Move;
-import chess.engine.board.Move.SimpleMove;
 import chess.engine.board.Tile;
 import chess.engine.gui.GuiBoard;
 
@@ -11,8 +10,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static chess.engine.board.Move.*;
-import static chess.engine.pieces.PieceUtil.*;
+import static chess.engine.board.Move.NormalMove;
+import static chess.engine.pieces.PieceUtil.isValidMove;
 
 public class King extends Piece{
     Boolean isInCheck;
@@ -36,13 +35,19 @@ public class King extends Piece{
 
             if (isValidMove(newRow, newCol)) {
                 Tile destinationTile = tiles[newRow][newCol];
-                if (destinationTile.isOccupied() && destinationTile.getPiece().getAlliance() != this.getAlliance()) {
-                    legalMoves.add(new AttackMove(getCol(), getRow(), newCol, newRow));
+                Piece pieceAtDestination = destinationTile.getPiece();
+                if (destinationTile.isOccupied() && pieceAtDestination.getAlliance() != this.getAlliance()) {
+                    legalMoves.add(new NormalMove(getCol(), getRow(), newCol, newRow));
                 } else if (!destinationTile.isOccupied()){
-                    legalMoves.add(new SimpleMove(getCol(), getRow(), newCol, newRow)); // Regular move
+                    legalMoves.add(new NormalMove(getCol(), getRow(), newCol, newRow));
                 }
             }
         }
         setLegalMoves(legalMoves);
+    }
+
+    @Override
+    public Piece copy() {
+        return new King(this.getAlliance(), this.getRow(), this.getCol());
     }
 }

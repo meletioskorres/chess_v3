@@ -37,16 +37,21 @@ public class Rook extends Piece {
                 if (destinationTile.isOccupied()) {
                     Piece pieceAtDestination = destinationTile.getPiece();
                     if (pieceAtDestination.getAlliance() != getAlliance()) {
-                        legalMoves.add(new Move.AttackMove(getCol(), getRow(), newCol, newRow)); // Capture
+                        legalMoves.add(new Move.NormalMove(getCol(), getRow(), newCol, newRow));
                     }
-                    break; // Stop further movement in this direction if occupied by any piece
+                    break;
                 } else {
-                    legalMoves.add(new Move.SimpleMove(getCol(), getRow(), newCol, newRow)); // Regular move
+                    legalMoves.add(new Move.NormalMove(getCol(), getRow(), newCol, newRow));
                 }
                 newRow += dRow;
                 newCol += dCol;
             }
         }
         setLegalMoves(legalMoves);
+    }
+
+    @Override
+    public Piece copy() {
+        return new Rook(this.getAlliance(), this.getRow(), this.getCol());
     }
 }

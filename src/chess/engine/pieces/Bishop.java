@@ -39,16 +39,21 @@ public class Bishop extends Piece {
                 if (destinationTile.isOccupied()) {
                     Piece pieceAtDestination = destinationTile.getPiece();
                     if (pieceAtDestination.getAlliance() != getAlliance()) {
-                        legalMoves.add(new AttackMove(getCol(), getRow(), newCol, newRow)); // Capture
+                        legalMoves.add(new NormalMove(getCol(), getRow(), newCol, newRow));
                     }
-                    break; // Stop further movement in this direction if occupied by any piece
+                    break;
                 } else {
-                    legalMoves.add(new SimpleMove(getCol(), getRow(), newCol, newRow)); // Regular move
+                    legalMoves.add(new NormalMove(getCol(), getRow(), newCol, newRow));
                 }
                 newRow += dRow;
                 newCol += dCol;
             }
         }
         setLegalMoves(legalMoves);
+    }
+
+    @Override
+    public Piece copy() {
+        return new Bishop(this.getAlliance(),this.getRow(),this.getCol());
     }
 }
